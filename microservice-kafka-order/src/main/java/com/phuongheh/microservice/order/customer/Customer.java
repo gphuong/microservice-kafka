@@ -1,15 +1,18 @@
-package com.phuongheh.kafka.invoicing;
+package com.phuongheh.microservice.order.customer;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-@Embeddable
+@Entity
 public class Customer {
-    @Column(nullable = false)
+    @Id
+    @GeneratedValue
     private Long customerId;
 
     @Column(nullable = false)
@@ -27,8 +30,7 @@ public class Customer {
         customerId = 0l;
     }
 
-    public Customer(long customerId, String firstname, String name, String email) {
-        super();
+    public Customer(String firstname, String name, String email, String street, String city) {
         this.customerId = customerId;
         this.name = name;
         this.firstname = firstname;

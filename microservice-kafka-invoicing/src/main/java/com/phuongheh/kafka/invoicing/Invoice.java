@@ -29,7 +29,7 @@ public class Invoice {
         invoiceLine = new ArrayList<>();
     }
 
-    public Invoice(Long id, Customer customer, Date updated, Address billingAddress, List<InvoiceLine> invoiceLine) {
+    public Invoice(long id, Customer customer, Date updated, Address billingAddress, List<InvoiceLine> invoiceLine) {
         this.id = id;
         this.customer = customer;
         this.updated = updated;
