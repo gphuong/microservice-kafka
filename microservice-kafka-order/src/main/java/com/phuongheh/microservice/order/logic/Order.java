@@ -47,6 +47,12 @@ public class Order {
         updated();
     }
 
+    public Order(Customer customer) {
+        super();
+        this.customer = customer;
+        this.orderLine = new ArrayList<>();
+    }
+
     private void updated() {
         updated = new Date();
     }
