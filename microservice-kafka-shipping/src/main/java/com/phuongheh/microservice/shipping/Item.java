@@ -1,32 +1,26 @@
 package com.phuongheh.microservice.shipping;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Embeddable
-public class Customer {
-    @Column(nullable = false)
-    private Long customerId;
-
-    @Column(nullable = false)
+public class Item {
+    private Long itemId;
     private String name;
 
-    @Column(nullable = false)
-    private String fistname;
-
-    public Customer() {
+    public Item() {
         super();
-        customerId = 0l;
+        itemId = 0l;
     }
 
-    public Customer(Long customerId, String fistname, String name) {
-        this.customerId = customerId;
-        this.name = name;
-        this.fistname = fistname;
+    public Long getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public String getName() {
@@ -35,22 +29,6 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getFistname() {
-        return fistname;
-    }
-
-    public void setFistname(String fistname) {
-        this.fistname = fistname;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
     }
 
     @Override

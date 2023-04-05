@@ -15,8 +15,13 @@ public class ShipmentService {
     }
 
     @Transactional
-    public void ship(Shipment shipment){
-        if(shipmentRepository.existsById(shipment.getI))    }
+    public void ship(Shipment shipment) {
+        if (shipmentRepository.existsById(shipment.getId())) {
+            log.info("Shipment id {} already exists - ignored", shipment.getId());
+        } else {
+            shipmentRepository.save(shipment);
+        }
+    }
 
 
 }
